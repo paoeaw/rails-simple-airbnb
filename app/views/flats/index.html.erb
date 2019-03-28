@@ -2,7 +2,7 @@
   <div class="title">
     <h1>Flats</h1>
   </div>
-  <div class="cards d-flex justify-content-between">
+  <div class="cards d-flex justify-content-between align-items-start">
     <div class="row">
       <% @flats.each do |flat| %>
         <div class="flat-card border shadow-sm m-3">
@@ -13,14 +13,14 @@
             <h4><%= flat.name %></h4>
             <p><%= flat.address %></p>
           </div>
-          <div class="card-flat-details d-flex p-3 border-bottom">
+          <div class="card-flat-details d-flex px-3 border-bottom">
             <p class="mr-3"><i class="fas fa-user-friends">&nbsp</i><%= flat.number_of_guests %></p>
             <p><i class="fas fa-pound-sign">&nbsp</i><%= flat.price_per_night %></p>
           </div>
           <div class="card-flat-actions p-3">
-            <%= link_to "More info", flat_path(id: flat['id']) %>
-            <%= link_to "Edit", flat_path(id: flat['id']) %>
-            <%= link_to "Remove", flat_path(id: flat['id']) %>
+            <%= link_to raw("<span class='text-primary'>More info</span>"), flat_path(id: flat['id']) %>
+            <%= link_to raw("<span class='text-warning'>Edit</span>"), flat_path(id: flat['id']) %>
+            <%= link_to raw("<span class='text-danger'>Remove</span>"), flat_path(id: flat['id']) %>
           </div>
         </div>
       <% end %>
